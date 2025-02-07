@@ -41,6 +41,8 @@ jupyter_ai_agents_aliases.update(
         "agent": "JupyterAIAgentBaseApp.agent_name",
         "input": "JupyterAIAgentBaseApp.input",
         "openai-api-version": "JupyterAIAgentBaseApp.openai_api_version",
+        "openai-api-key": "JupyterAIAgentBaseApp.openai_api_key",
+        "openai-model-name": "JupyterAIAgentBaseApp.openai_model_name",
         "azure-openai-version": "JupyterAIAgentBaseApp.azure_openai_version",
         "azure-openai-api-key": "JupyterAIAgentBaseApp.azure_openai_api_key",
         "azure-ai-deployment-name": "JupyterAIAgentBaseApp.azure_ai_deployment_name",
@@ -87,6 +89,16 @@ class JupyterAIAgentBaseApp(JupyterApp):
         help="Input."
     )
 
+    openai_api_key = Unicode(
+        os.environ.get("OPENAI_API_KEY"),
+        help="""OpenAI API key.""",
+        config=True,
+    )
+    openai_model_name = Unicode(
+        os.environ.get("OPENAI_MODEL_NAME", "gpt-4o"),
+        help="""OpenAI model name (e.g., 'gpt-4o', 'gpt-3.5-turbo').""",
+        config=True,
+    )
     openai_api_version = Unicode(
         os.environ.get("OPENAI_API_VERSION"),
         help="""OpenAI version.""",

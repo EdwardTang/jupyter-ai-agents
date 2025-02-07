@@ -122,3 +122,8 @@ untracked_notebooks/*
 .jupyter_ystore
 .jupyter_ystore.db
 docs/.yarn/*
+
+devin.requirements.txt
+devin_utils/*
+.env
+venv/*
